@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Problema do elevador</h1>
+    3
+    <script>
+        let passageiros = 0, posicaoatual, ElevadoresOcupados = "", ElevadoresDisponiveis = [], MenorDistancia = Infinity, x   
+        const elevadores = [{ Id: "A", CPT: 3, CP: 3, nivel: 4 }, { Id: "B", CPT: 3, CP: 1, nivel: 3 }, { Id: "C", CPT: 3, CP: 0, nivel: 2 }]
+        const setores = [
+            { nivel: 4 }, //A
+            { nivel: 3 }, //B
+            { nivel: 2 }, //C
+            { nivel: 1 },
+            { nivel: 0 },
+        ]
+        for (elevador of elevadores) {
+            passageiros = + elevadores[CP]
+        }
+        const VerificarDisponibilidade = () => {
+            //Se a capacidade do elevador é menor que 3
+            for (elevador of elevadores) {
+                if (elevadores[CPT] == 3) {
+                    ElevadoresOcupados = + elevadores[Id]
+                } else {
+                    ElevadoresDisponiveis.push(elevadores)
+            }
+            posicaoatual = 0
+            for (elevador of ElevadoresDisponiveis) {
+                distanciaAtual = Math.abs(posicaoatual - elevador[nivel]) //math.abs serve pra tirar sinais 
+                if(distanciaAtual < MenorDistancia){
+                    x = elevador
+                    MenorDistancia = distanciaAtual
+                }
+            }
+            console.log("Este é o elevador mais próximo:"`${x}`)
+        }
+        // qual é o elevador mais perto?
+    </script>
+
+
+
+
+</body>
+
+</html>

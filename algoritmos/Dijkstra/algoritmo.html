@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo de Dijkstra</title>
+</head>
+
+<body>
+    <script>
+        //tabelas hash :  função de hash é responsável por converter a chave (que pode ser qualquer tipo de dado) em um índice numérico.
+        let grafo = {}; let custos = {}; let pais = {}; let verlowcost; let None; let custo;
+        const hash = (tabela, chave, valor, peso) => {
+            if (!tabela[chave]) {
+                tabela[chave] = {}
+            }
+            if (!tabela[chave][valor]) {
+                tabela[chave][valor] = []
+            }
+            tabela[chave][valor].push(peso)
+        }
+        const obter = (tabela, chave, valor) => {
+            console.log(tabela[chave][valor])
+        }
+        const remover = (tabela, chave) => {
+            delete tabela[chave]
+        }
+        hash(grafo, "início", "a", 6)
+        hash(grafo, "início", "b", 2)
+        hash(grafo, "a", "fim", 1)
+        hash(grafo, "b", "a", 3)
+        hash(grafo, "c", "fim", 5)
+        grafo["fim"] = {}
+        hash(custos, "a", 6)
+        hash(custos, "b", 2)
+        hash(custos, "fim", Infinity)
+        hash(pais, "a", "início")
+        hash(pais, "b", "início")
+        hash(pais, "fim")
+        let notprocessados = []
+        let processados = []
+
+        const AcharOcustoMaisBaixo = (custos) => {
+            let lowcost = parseFloat("inf")
+            for (i in custos) {
+                custo = custos[i]
+                if (custo < lowcost && !processados.includes(i)) {
+                    lowcost = custo
+                    verlowcost = i
+                }
+
+            }
+            return i
+        }
+        None = AcharOcustoMaisBaixo(custos)
+
+
+        None = AcharOcustoMaisBaixo(custos)
+        while (lowcost != None) {
+            custo = custos[verlowcost]
+            vizinhos = grafo[verlowcost]
+            for (i in vizinhos) { //** entender melhor daqui
+                newlowcost = custo + vizinhos[i]
+                if (newlowcost > custos[i]) {
+                    custos[i] = newlowcost
+                    pais[i] = verlowcost
+                }
+                processados.push(None)
+            }
+        }
+
+        // inicio V
+        // A
+        // B
+        // FIM
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort</title>
+</head>
+
+<body>
+    <script>
+
+            let listaNumbers = [45, 231, 123, 12, 4, 512, 3, 4, 5, 2]
+            let container = []
+            let ArrayA = []
+            let ArrayB = []
+            let meio = Math.floor(listaNumbers.length / 2)
+        
+        const verificarsepodedividir = () => {
+            if (listaNumbers.length % 2 === 0 && arrayIgual(listaNumbers.slice(0, meio), listaNumbers.slice(meio))) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        const dividir = () => {
+            for (i = 0; i <= listaNumbers.length; i++) {
+                if (listaNumbers.length == 2) {
+                    for (i = 0; i <= listaNumbers.length; i++) {
+                        if (listaNumbers.length == 0) {
+                            return alert("O array já está ordenado")
+                        }
+                        if (listaNumbers.length[0] > listaNumbers[listaNumbers.length - 1]) {
+                            newarray = [listaNumbers[listaNumbers.length - 1], listaNumbers.length[0]]
+                            break
+                        } else {
+                            newarray = [listaNumbers.length[0], listaNumbers[listaNumbers.length - 1]]
+                        }
+                    }
+                    return
+                }
+                if (i < listaNumbers.length / 2) {
+                    ArrayA.push(listaNumbers[i])
+                }
+                if (i > listaNumbers.length / 2) {
+                    ArrayB.push(listaNumbers[i])
+                }
+            }
+        }
+        const verificarmaior = () => {//Mude essa lógica dos laços FOR da função, não é bem isso que eu quero fazer.
+            for (i = 0; i <= ArrayA.length - 1; i++) {
+                if (ArrayA[i] > ArrayA[i + 1]) {
+                    container.push(i)
+                }
+            }
+            for (i = 0; i <= ArrayB.length - 1; i++) {
+                if (ArrayB[i] > ArrayA[i + 1]) {
+                    container.push(i)
+                }
+            }   
+
+        }
+
+        const criararray = () => {
+
+        }
+        dividir()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //algoritmo de ordenação
+        //Ele divide a lista em duas metades
+        //ordena cada metade
+        //justa as duas metades ordenadas
+    </script>
+</body>
+
+</html>

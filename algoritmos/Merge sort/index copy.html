@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort</title>
+</head>
+
+<body>
+    <script>
+        let listaNumbers = [45, 231, 123, 12, 4, 512, 3, 4, 5, 2]
+
+        const mergeSort = (lista, inicio, fim) => { //inicio: Representa o índice do primeiro elemento do intervalo.
+            //fim: Representa o índice do último elemento do intervalo.
+            if (fim - inicio > 1) {
+                const meio = Math.floor((fim + inicio) / 2)
+                mergeSort(lista, inicio, meio) //esquerda
+                mergeSort(lista, meio, fim) //direita
+                merge(lista, inicio, meio, fim)
+            }
+        }   
+        
+        const merge = (lista, inicio, meio, fim) => {
+            let e = 0; let d = 0;
+            let left = lista.slice(inicio, meio) 
+            let right = lista.slice(meio, fim)   
+                                                                                          
+            for (let i = inicio; i < fim; i++) {
+                if (e < left.length && (d >= right.length || left[e] <= right[d])) {
+                    lista[i] = left[e];
+                    e = e + 1;
+                } else {
+                    lista[i] = right[d];
+                    d = d + 1;
+                }
+            }
+        }
+
+        mergeSort(listaNumbers, 0, listaNumbers.length)
+        console.log(listaNumbers);
+    </script>
+</body>
+
+</html>

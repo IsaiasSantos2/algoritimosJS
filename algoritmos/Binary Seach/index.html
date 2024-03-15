@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary search</title>
+</head>
+
+<body>
+    <form>
+        <h1>Coloque um número aleatório</h1><input type="number" id="inNumber" max=300>
+        <input type="submit" value="pesquisar">
+
+        <script>
+            const Global = Array.from({ length: 400 }, (_, index) => index + 1)
+
+            const frm = document.querySelector("form")
+            const inNumber = document.getElementById("inNumber")
+           let contator = 0;
+            frm.addEventListener("submit", (e) => {
+                e.preventDefault()
+                const num = parseInt(inNumber.value)
+                binary(Global, num)
+            })
+            let i = 1
+            const binary = (lista, number) => {
+ 
+                while (i != 0) {
+
+                    let left = lista.slice(0, Math.floor(lista.length / 2))
+
+                    let right = lista.slice(Math.floor(lista.length / 2))
+
+                    let mid = Math.floor((lista.length) / 2)
+
+                    if (lista.length == 2) {
+                        if (lista[0] == number) {
+                            i = 0
+                            return console.log(`Encontrado: ${number}, com um total de ${contator}, buscas`)
+                            break
+                        } else {
+                            i = 0
+                            return console.log(`Encontrado: ${number}, com um total de ${contator}, buscas`)
+                            break
+                        }
+                    }
+                    if (lista[mid] === number) {
+                        contator++
+                        i = 0
+                        return console.log(`Encontrado: ${number}, com um total de ${contator}, buscas`)
+                        break
+                    }
+                    if (number < lista[mid]) {
+                        contator++
+                        binary(left, number)
+                    }
+                    else if (number > lista[mid]) {
+                        contator++
+                        binary(right, number)
+                    }
+                }
+            }
+            //O array deve estar ordenado
+        </script>
+    </form>
+</body>
+
+</html>
